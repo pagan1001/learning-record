@@ -1,7 +1,7 @@
 # 个人学习记录
 
 ## 介绍
-:blush::blush:记录一下个人学习:blush::blush::blush:<br>
+😊😊😊记录一下个人学习😊😊😊<br>
 >GitHub个人主页：https://github.com/pagan1001<br>
 <br>Gitee个人主页：https://gitee.com/pagan1001
 
