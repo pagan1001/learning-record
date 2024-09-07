@@ -22,11 +22,11 @@
 #### ACM篇<br>
 难度分为
 >:star:青铜<br>
-:star::star:白银<br>
-:star::star::star:黄金<br>
-:star::star::star::star:钻石<br>
-:star::star::star::star::star:星耀<br>
-:star::star::star::star::star::star:王者
+:star: :star:白银<br>
+:star: :star::star:黄金<br>
+:star: :star::star::star:钻石<br>
+:star: :star::star::star::star:星耀<br>
+:star: :star::star::star::star::star:王者
 
 #### 应急响应手册篇<br>
 >:penguin:Linux 操作流程:<br>
