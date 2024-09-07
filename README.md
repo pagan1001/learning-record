@@ -43,5 +43,5 @@
 ###### 前后端:fried_shrimp:<br>
 >根据实际场景编写前后端，并调用对应接口（使用vue与Java）
 
-智谷星图中文版remix：http://remix.zhiguxingtu.com/<br>
+智谷星图中文版remix：https://remix.zhiguxingtu.com/<br>
 remix官方版：https://remix.ethereum.org/
