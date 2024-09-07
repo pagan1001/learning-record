@@ -8,7 +8,6 @@
 <br>目前分为：
 
 #### :boom: :boom: ACM刷题记录篇:boom: :boom: <br>
->在线刷题OJ：https://www.matiji.net/exam/
 
 #### :monkey: :monkey: 应急响应手册篇 :monkey: :monkey:<br>
 
@@ -20,7 +19,9 @@
 
 ## 篇章详细说明
 #### ACM篇<br>
-难度分为
+在线刷题OJ：https://www.matiji.net/exam/<br>
+
+题目难度分为
 >:star:青铜<br>
 :star: :star:白银<br>
 :star: :star: :star:黄金<br>
