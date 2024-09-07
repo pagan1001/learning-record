@@ -7,26 +7,26 @@
 
 <br>目前分为：
 
-:boom::boom:ACM刷题记录篇:boom::boom:<br>
+:boom: :boom:ACM刷题记录篇:boom: :boom:<br>
 >在线刷题OJ：https://www.matiji.net/exam/
 
-:monkey::monkey:应急响应手册篇:monkey::monkey:<br>
+:monkey: :monkey:应急响应手册篇:monkey: :monkey:<br>
 
-:panda_face::panda_face:Linux常用指令篇:panda_face::panda_face:<br>
+:panda_face: :panda_face:Linux常用指令篇:panda_face: :panda_face:<br>
 
-:earth_asia::earth_asia:区块链开发运维篇:earth_asia::earth_asia:
+:earth_asia: :earth_asia:区块链开发运维篇:earth_asia:  :earth_asia:
 
-:arrow_double_up::arrow_double_up:CTF篇:arrow_double_up::arrow_double_up:
+:arrow_double_up: :arrow_double_up:CTF篇:arrow_double_up: :arrow_double_up:
 
 ## 篇章详细说明
 #### ACM篇<br>
 难度分为
 >:star:青铜<br>
 :star: :star:白银<br>
-:star: :star::star:黄金<br>
-:star: :star::star::star:钻石<br>
-:star: :star::star::star::star:星耀<br>
-:star: :star::star::star::star::star:王者
+:star: :star: :star:黄金<br>
+:star: :star: :star: :star:钻石<br>
+:star: :star: :star: :star::star:星耀<br>
+:star: :star: :star: :star: :star: :star:王者
 
 #### 应急响应手册篇<br>
 >:penguin:Linux 操作流程:<br>
