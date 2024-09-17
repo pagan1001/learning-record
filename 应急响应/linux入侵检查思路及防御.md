@@ -29,7 +29,7 @@
 |:--|:--|
 |grep "0" /etc/passwd|查看是否产生了新用户，UID和GID为0的用户|
 |ls -l /etc/passwd|查看passwd的修改时间，判断是否在不知的情况下添加用户|
-|awk -F: '$ 3==0 {print $ 1}' /etc/passwd|查看是否存在特权用户|
+|```awk -F: '$3==0 {print $ 1}' /etc/passwd```|查看是否存在特权用户|
 |awk -F: 'length($ 2)==0 {print $1}' /etc/shadow|查看是否存在空口令帐户|
 |more /etc/sudoers &#124; grep -v "^#&#124;^$" &#124; grep "ALL=(ALL)"|除root帐号外，其他帐号是否存在sudo权限|
 |usermod -L user|禁用帐号，帐号无法登录，/etc/shadow第二栏为!开头|
