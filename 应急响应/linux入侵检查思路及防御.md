@@ -14,7 +14,7 @@
 ***6、根目录（/root）***：代表用户的家目录<br><br>
 ***7、Shell（/bin/bash）***：代表用户使用的 shell 类型。
 
-|**==命令**|**说明**|
+|**命令**|**说明**|
 |:--|:--|
 |cat/etc/shadow|存储 Linux 系统中用户的密码信息，又称为“影子文件”|
 
@@ -23,11 +23,64 @@
 
 <mark>***哈希密码可以使用john进行破解***</mark>
 
-# ***2、查看历史命令***
+***入侵排查其他常用命令***
 
+|**命令**|**说明**|
+|:--|:--|
+|grep "0" /etc/passwd|查看是否产生了新用户，UID和GID为0的用户|
+|ls -l /etc/passwd|查看passwd的修改时间，判断是否在不知的情况下添加用户|
+|awk -F: '$3==0 {print $1}' /etc/passwd|查看是否存在特权用户|
+|awk -F: 'length($2)==0 {print $1}' /etc/shadow|查看是否存在空口令帐户|
+|more /etc/sudoers &#124; grep -v "^#&#124;^$" &#124; grep "ALL=(ALL)"|除root帐号外，其他帐号是否存在sudo权限|
+|usermod -L user|禁用帐号，帐号无法登录，/etc/shadow第二栏为!开头|
+|userdel user|删除user用户|
+|userdel -r user|将删除user用户，并且将/home目录下的user目录一并删除|
+
+# ***2、查看历史命令***
+linux系统默认会记录用户输入的命令，保存到一个.bash_history隐藏文件中，ls -al命令可以查看隐藏文件<br>
+
+<mark>***history命令可以查看root用户的历史命令***</mark><br>
+
+![](https://pic.imgdb.cn/item/66e9a0e3f21886ccc0638087.png)
+
+- 注意wget（有可能是下载木马文件），ssh（可能是异常连接内网主机），tar zip（数据打包），系统配置命令可能是修改系统相关配置
+<br><br>如：登录ssh
+
+![](https://pic.imgdb.cn/item/66e9a0acf21886ccc0634822.png)
+
+- 在/home各账户目录下，cat /用户/.bash_history也可以查看普通用户的历史命令。<br><br>例如，查看用户 john 的历史记录：
+```shell
+cat /home/bjj/.bash_history
+```
 # ***3、检查异常端口***
 
+|**命令**|**说明**|
+|:--|:--|
+|netstat -antlp|检查端口|
+|ls -l /proc/$PID/exe|查看pid所对应的进程文件路径|
+
+![](https://pic.imgdb.cn/item/66e9a2bcf21886ccc0654955.png)
+
+- 查看PID对应路径
+
+![](https://pic.imgdb.cn/item/66e9a337f21886ccc065c5f5.png)
+
+使用telnet连接
+
+![](https://pic.imgdb.cn/item/66e9a8dbf21886ccc06d8bbb.png)
+
 # ***4、检查异常进程***
+
+>使用ps命令结合aux，grep选项查看linux系统下的进程信息，还可以使用top命令查看是否有挖矿，木马病毒占用大量的系统资源
+
+|**命令**|**说明**|
+|:--|:--|
+|ps aux &#124; grep pid|分析进程|
+|ps -efe|查看进程|
+|lsof -p pid|查看进程打开的端口和文件|
+
+![](https://pic.imgdb.cn/item/66e9aadaf21886ccc072a431.png)
+![](https://pic.imgdb.cn/item/66e9ab15f21886ccc0736d3f.png)
 
 # ***5、计划任务排查***
 
