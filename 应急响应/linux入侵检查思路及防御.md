@@ -29,8 +29,8 @@
 |:--|:--|
 |grep "0" /etc/passwd|查看是否产生了新用户，UID和GID为0的用户|
 |ls -l /etc/passwd|查看passwd的修改时间，判断是否在不知的情况下添加用户|
-|```awk -F: '$3==0 {print $ 1}' /etc/passwd```|查看是否存在特权用户|
-|```awk -F: 'length($ 2)==0 {print $1}' /etc/shadow```|查看是否存在空口令帐户|
+|awk -F: '\$3==0 {print $ 1}' /etc/passwd|查看是否存在特权用户|
+|awk -F: 'length(\$2)==0 {print $1}' /etc/shadow|查看是否存在空口令帐户|
 |more /etc/sudoers &#124; grep -v "^#&#124;^$" &#124; grep "ALL=(ALL)"|除root帐号外，其他帐号是否存在sudo权限|
 |usermod -L user|禁用帐号，帐号无法登录，/etc/shadow第二栏为!开头|
 |userdel user|删除user用户|
@@ -83,6 +83,21 @@ cat /home/bjj/.bash_history
 ![alt text](photos/image9.png)
 
 # ***5、计划任务排查***
+
+一般在linux下的任务计划文件是以cron开头的，linux系统中可以使用crontab命令进行计划任务的设置。
+
+默认编写的crontab文件会保存在 （/var/spool/cron/用户名 例如:<mark>***/var/spool/cron/root***</mark>）
+
+|***命令***|***说明***|
+|:--|:--|
+|crontab -l|列出某个用户cron服务的详细内容|
+|crontab -r|删除每个用户cront任务(谨慎：删除所有的计划任务)|
+|crontab -e|使用编辑器编辑当前的crontab文件|
+|cat /etc/crontab|查看计划任务内容|
+|ls /etc/cron.*|列出以cron.开头的文件或目录|
+|more /etc/cron.daily/*|查看目录下所有文件|
+
+![alt text](photos/image10.png)
 
 # ***6、异常文件检查***
 
