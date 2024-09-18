@@ -41,12 +41,12 @@ linux系统默认会记录用户输入的命令，保存到一个.bash_history�
 
 <mark>***history命令可以查看root用户的历史命令***</mark><br>
 
-![](https://pic.imgdb.cn/item/66e9a0e3f21886ccc0638087.png)
+![alt text](photos/image3.png)
 
 - 注意wget（有可能是下载木马文件），ssh（可能是异常连接内网主机），tar zip（数据打包），系统配置命令可能是修改系统相关配置
 <br><br>如：登录ssh
 
-![](https://pic.imgdb.cn/item/66e9a0acf21886ccc0634822.png)
+![alt text](photos/image4.png)
 
 - 在/home各账户目录下，cat /用户/.bash_history也可以查看普通用户的历史命令。<br><br>例如，查看用户 john 的历史记录：
 ```shell
@@ -59,15 +59,15 @@ cat /home/bjj/.bash_history
 |netstat -antlp|检查端口|
 |ls -l /proc/$PID/exe|查看pid所对应的进程文件路径|
 
-![](https://pic.imgdb.cn/item/66e9a2bcf21886ccc0654955.png)
+![alt text](photos/image5.png)
 
 - 查看PID对应路径
 
-![](https://pic.imgdb.cn/item/66e9a337f21886ccc065c5f5.png)
+![alt text](photos/image6.png)
 
 使用telnet连接
 
-![](https://pic.imgdb.cn/item/66e9a8dbf21886ccc06d8bbb.png)
+![alt text](photos/image7.png)
 
 # ***4、检查异常进程***
 
@@ -79,8 +79,8 @@ cat /home/bjj/.bash_history
 |ps -efe|查看进程|
 |lsof -p pid|查看进程打开的端口和文件|
 
-![](https://pic.imgdb.cn/item/66e9aadaf21886ccc072a431.png)
-![](https://pic.imgdb.cn/item/66e9ab15f21886ccc0736d3f.png)
+![alt text](photos/image8.png)
+![alt text](photos/image9.png)
 
 # ***5、计划任务排查***
 
