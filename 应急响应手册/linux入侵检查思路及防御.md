@@ -1,5 +1,6 @@
-# ***应急响应操作手册（Linux篇）***</big>
-# ***1、检查系统用户***
+# :penguin: ***应急响应操作手册（Linux篇）***</big>
+
+# ***1、检查系统用户*** :pushpin:
 
 |**命令**|**说明**|
 |:--|:--|
@@ -37,7 +38,7 @@
 |userdel user|删除user用户|
 |userdel -r user|将删除user用户，并且将/home目录下的user目录一并删除|
 
-# ***2、查看历史命令***
+# ***2、查看历史命令*** :pushpin:
 >linux系统默认会记录用户输入的命令，保存到一个.bash_history隐藏文件中，ls -al命令可以查看隐藏文件<br>
 
 <mark>***history命令可以查看root用户的历史命令***</mark><br>
@@ -54,7 +55,7 @@
 cat /home/bjj/.bash_history
 ```
 
-# ***3、检查异常端口***
+# ***3、检查异常端口*** :pushpin:
 
 |**命令**|**说明**|
 |:--|:--|
@@ -71,7 +72,7 @@ cat /home/bjj/.bash_history
 
 ![alt text](photos/image7.png)
 
-# ***4、检查异常进程***
+# ***4、检查异常进程*** :pushpin:
 
 >使用ps命令结合aux，grep选项查看linux系统下的进程信息，还可以使用top命令查看是否有挖矿，木马病毒占用大量的系统资源
 
@@ -84,7 +85,7 @@ cat /home/bjj/.bash_history
 ![alt text](photos/image8.png)
 ![alt text](photos/image9.png)
 
-# ***5、计划任务排查***
+# ***5、计划任务排查*** :pushpin:
 
 >一般在linux下的任务计划文件是以cron开头的，linux系统中可以使用crontab命令进行计划任务的设置。
 默认编写的crontab文件会保存在 （/var/spool/cron/用户名 例如:<mark>***/var/spool/cron/root***</mark>）
@@ -105,7 +106,7 @@ cat /home/bjj/.bash_history
 如：*/1 * * * * echo "hello world" >> /tmp/test.txt 每分钟写入文件  :每隔一分钟输出hello world
 ```
 
-# ***6、异常文件检查***
+# ***6、异常文件检查*** :pushpin:
 
 >异常文件检查是排查黑客是否有修改服务器上的敏感目录或文件。<br>如/tmp目录下的文件，同时注意隐藏文件夹，以“..”为名的文件夹具有隐藏属性。
 ```shell
@@ -125,7 +126,7 @@ find /opt -iname "*" -atime 1 -type f   //找出 /opt 下一天前访�
 
 ![alt text](photos/image11.png)
 
-# ***7、检查系统日志***
+# ***7、检查系统日志*** :pushpin:
 
 >检查系统错误登陆日志，统计IP重试次数（last命令是查看系统登陆日志，比如系统被reboot或登陆情况）
 
@@ -143,13 +144,14 @@ find /opt -iname "*" -atime 1 -type f   //找出 /opt 下一天前访�
 |/var/log/btmp|记录错误登录日志，这个文件是二进制文件，不能直接vi查看，而要使用lastb命令查看|
 |/var/log/secure|记录验证和授权方面的信息，只要涉及账号和密码的程序都会记录，比如SSH登录，su切换|
 
-# ***8、开机启动项***
+# ***8、开机启动项*** :pushpin:
 
 >因为中毒会随系统的启动而启动的，所以一般会开机启动，检查一下启动的服务或者文件是否有异常，一般会在/etc/rc.local和crondtab -l 显示出来
 
 <mark>***了解系统运行级别***</mark><br>
 
-**查看运行级别用：runlevel**
+**查看运行级别用：runlevel** :arrow_upper_right: :arrow_upper_right: :arrow_upper_right: :arrow_upper_right:
+
 |运行级别|含义|
 |:--|:--|
 |0|关机|
@@ -166,8 +168,9 @@ find /opt -iname "*" -atime 1 -type f   //找出 /opt 下一天前访�
 ![alt text](photos/image14.png)
 
 在目录**/etc/rc.d/init.d**下有许多服务器脚本程序，一般称为服务(service)，当想要启动某个脚本时，只需要将可执行脚本丢在/etc/init.d目录下，然后在/etc/rc.d/rc*.d中建立软链接即可
+ 
+# ***9、检查服务*** :pushpin:
 
-# ***9、检查服务***
 <mark>***查询已安装的服务***</mark>
 
 ```shell
@@ -192,10 +195,10 @@ sysv-rc-conf  --list
 
 ![alt text](photos/image15.png)
 
-# ***10、确保Linux系统安全***
->1、用户名和密码不能设置太简单<br><br>
-2、不要使用默认的远程端口，避免被扫描到根据端口扫描，然后再进行密码扫描，默认的端口往往就是扫描器的对象。比如：22端口、6379端口等<br><br>
-3、使用一些安全策略进行保护系统开放的端口使用iptables或者配置/etc/hosts.deny 和/etc/hosts.allow进行白名单设置
+# ***10、确保Linux系统安全*** :pushpin:
+>:one: &emsp; 用户名和密码不能设置太简单<br><br>
+:two:  &emsp; 不要使用默认的远程端口，避免被扫描到根据端口扫描，然后再进行密码扫描，默认的端口往往就是扫描器的对象。比如：22端口、6379端口等<br><br>
+:three: &emsp; 使用一些安全策略进行保护系统开放的端口使用iptables或者配置/etc/hosts.deny 和/etc/hosts.allow进行白名单设置
 可以对/etc/passwd、/etc/group、/etc/sudoers、/etc/shadow等用户信息文件进行锁定<br><br>
-4、禁ping 设置<br><br>
-5、安装和使用防火墙、加密数据以及使用防病毒软件
+:four: &emsp; 禁ping 设置<br><br>
+:five: &emsp; 安装和使用防火墙、加密数据以及使用防病毒软件
