@@ -37,7 +37,7 @@
 |userdel -r user|将删除user用户，并且将/home目录下的user目录一并删除|
 
 # ***2、查看历史命令***
-linux系统默认会记录用户输入的命令，保存到一个.bash_history隐藏文件中，ls -al命令可以查看隐藏文件<br>
+>linux系统默认会记录用户输入的命令，保存到一个.bash_history隐藏文件中，ls -al命令可以查看隐藏文件<br>
 
 <mark>***history命令可以查看root用户的历史命令***</mark><br>
 
@@ -84,8 +84,7 @@ cat /home/bjj/.bash_history
 
 # ***5、计划任务排查***
 
-一般在linux下的任务计划文件是以cron开头的，linux系统中可以使用crontab命令进行计划任务的设置。
-
+>一般在linux下的任务计划文件是以cron开头的，linux系统中可以使用crontab命令进行计划任务的设置。
 默认编写的crontab文件会保存在 （/var/spool/cron/用户名 例如:<mark>***/var/spool/cron/root***</mark>）
 
 |***命令***|***说明***|
@@ -99,13 +98,102 @@ cat /home/bjj/.bash_history
 
 ![alt text](photos/image10.png)
 
+向test.txt文件中写入计划任务
+```shell
+如：*/1 * * * * echo "hello world" >> /tmp/test.txt 每分钟写入文件  :每隔一分钟输出hello world
+```
+
 # ***6、异常文件检查***
+
+>异常文件检查是排查黑客是否有修改服务器上的敏感目录或文件。<br>如/tmp目录下的文件，同时注意隐藏文件夹，以“..”为名的文件夹具有隐藏属性。
+```shell
+find / -uid 0 –perm -4000 –print
+find / -size +10000k –print
+find / -name "…" –print
+find / -name ".." –print
+find / -name "." –print
+find / -name " " –print
+```
+
+<mark>***如：发现WEBSHELL、远控木马的创建时间，如何找出同一时间范围内创建的文件?***</mark>
+
+```shell
+find /opt -iname "*" -atime 1 -type f   //找出 /opt 下一天前访问过的文件
+```
+
+![alt text](photos/image11.png)
 
 # ***7、检查系统日志***
 
+>检查系统错误登陆日志，统计IP重试次数（last命令是查看系统登陆日志，比如系统被reboot或登陆情况）
+
+![alt text](photos/image12.png)
+
+|***日志文件***|***说明***|
+|:--|:--|
+|/var/log/|日志默认存放位置|
+|more /etc/rsyslog.conf|查看日志配置情况|
+|/var/log/cron|记录了系统定时任务相关的日志|
+|/var/log/cups|记录打印信息的日志|
+|/var/log/dmesg|记录了系统在开机时内核自检的信息，也可以使用dmesg命令直接查看内核自检信息|
+|/var/log/mailog|记录邮件信息|
+|/var/log/message|记录系统重要信息的日志。这个日志文件中会记录Linux系统的绝大多数重要信息，如果系统出现问题时，首先要检查的就应该是这个日志文件|
+|/var/log/btmp|记录错误登录日志，这个文件是二进制文件，不能直接vi查看，而要使用lastb命令查看|
+|/var/log/secure|记录验证和授权方面的信息，只要涉及账号和密码的程序都会记录，比如SSH登录，su切换|
+
 # ***8、开机启动项***
 
+>因为中毒会随系统的启动而启动的，所以一般会开机启动，检查一下启动的服务或者文件是否有异常，一般会在/etc/rc.local和crondtab -l 显示出来
+
+<mark>***了解系统运行级别***</mark><br>
+
+**查看运行级别用：runlevel**
+|运行级别|含义|
+|:--|:--|
+|0|关机|
+|1|单用户模式，root权限，用于系统维护，禁止远程登陆，就像Windows下的安全模式登录|
+|2|多用户模式，没有NFS网络支持|
+|3|完整的多用户文本模式，有NFS，登陆后进入控制台命令行模式|
+|4|系统未使用，保留一般不用，在一些特殊情况下可以用它来做一些事情。例如在笔记本电脑的电池用尽时，可以切换到这个模式来做一些设置。|
+|5|图形化模式，登陆后进入图形GUI模式或GNOME、KDE图形化界面，如X Window系统。|
+|6|重启模式，默认运行级别不能设为6，否则不能正常启动，就会一直开机重启开机重启|
+
+/etc/init.d/程序名 status命令可以查看每个程序的状态，排查启动项的目的是检查黑客在入侵服务器后是否有在启动项里安装后门程序。
+
+![alt text](photos/image13.png)
+![alt text](photos/image14.png)
+
+在目录**/etc/rc.d/init.d**下有许多服务器脚本程序，一般称为服务(service)，当想要启动某个脚本时，只需要将可执行脚本丢在/etc/init.d目录下，然后在/etc/rc.d/rc*.d中建立软链接即可
+
 # ***9、检查服务***
+<mark>***查询已安装的服务***</mark>
+
+```shell
+chkconfig --list 查看服务自启动状态，可以看到所有的RPM包安装的服务
+
+ps aux | grep crond 查看当前服务
+
+系统在3与5级别下的启动项
+
+中文环境
+
+chkconfig --list | grep "3:启用\|5:启用"
+
+英文环境
+
+chkconfig --list | grep "3:on\|5:on"
+
+Ubuntu可以使用sysv-rc-conf代替chkconfig
+
+sysv-rc-conf  --list
+```
+
+![alt text](photos/image15.png)
 
 # ***10、确保Linux系统安全***
-
+>1、用户名和密码不能设置太简单<br><br>
+2、不要使用默认的远程端口，避免被扫描到根据端口扫描，然后再进行密码扫描，默认的端口往往就是扫描器的对象。比如：22端口、6379端口等<br><br>
+3、使用一些安全策略进行保护系统开放的端口使用iptables或者配置/etc/hosts.deny 和/etc/hosts.allow进行白名单设置
+可以对/etc/passwd、/etc/group、/etc/sudoers、/etc/shadow等用户信息文件进行锁定<br><br>
+4、禁ping 设置<br><br>
+5、安装和使用防火墙、加密数据以及使用防病毒软件
