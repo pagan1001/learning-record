@@ -34,13 +34,13 @@
 <br>:computer:Windows 操作流程
 
 #### 区块链开发运维篇<br>
-###### 区块链平台搭建:fried_shrimp:<br>
+###### 区块链平台搭建 :fried_shrimp:<br>
 >基于金链盟Fisco-Bcos和Webase平台从零开始搭建全过程
 
-###### 智能合约:fried_shrimp:<br>
+###### 智能合约 :fried_shrimp:<br>
 >solidity合约实战、remix本地部署
 
-###### 前后端:fried_shrimp:<br>
+###### 前后端 :fried_shrimp:<br>
 >根据实际场景编写前后端，并调用对应接口（使用vue与Java）
 
 智谷星图中文版remix：http://remix.zhiguxingtu.com/<br>
