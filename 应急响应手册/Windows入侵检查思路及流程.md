@@ -27,7 +27,7 @@
 ```
 1、打开 cmd 窗口或 Win+R，输入 lusrmgr.msc 命令，查看是否有新增/可疑的账号，如有管理员群组的（Administrators）里的新增账户
 ```
-![](https://pic.imgdb.cn/item/66f3c046f21886ccc0baa4a5.png)
+![alt text](photos/win1.png)
 
 - 查看服务器是否存在隐藏账号、克隆账号
 ```
@@ -37,8 +37,8 @@
 4、再次打开注册表编辑器，即可选择HKEY_LOCAL_MACHINE/SAM/SAM/Domains/Account/Users；
 5、在 Names 项下可以看到实例所有用户名；
 ```
-![](https://pic.imgdb.cn/item/66f3c0bff21886ccc0bb147e.png)
-![](https://pic.imgdb.cn/item/66f3c0f7f21886ccc0bb46ce.png)
+![alt text](photos/win2.png)
+![alt text](photos/win3.png)
 
 <mark>***注意：如出现本地账户中没有的账户，即为隐藏账户，在确认为非系统用户的前提下，可删除此用户。***</mark>
 ```
@@ -57,7 +57,7 @@
 3、 用微软官方工具 Log Parser 进行分析 
 下载地址：https://www.microsoft.com/enus/download/details.aspx?id=24659
 ```
-![](https://pic.imgdb.cn/item/66f3c11cf21886ccc0bb695f.png)
+![alt text](photos/win4.png)
 
 ## ***2、检查端口、进程***
 - 检查异常端口
@@ -70,9 +70,9 @@
 4、通过D盾web查杀工具进行端口查看
 ```
 
-![](https://pic.imgdb.cn/item/66f3c198f21886ccc0bbd802.png)
-![](https://pic.imgdb.cn/item/66f3c1c7f21886ccc0bbff63.png)
-![](https://pic.imgdb.cn/item/66f3c1d9f21886ccc0bc0c8a.png)
+![alt text](photos/win5.png)
+![alt text](photos/win6.png)
+![alt text](photos/win7.png)
 
 - 检查异常进程
 ```
