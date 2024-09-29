@@ -17,6 +17,8 @@
 
 #### :arrow_double_up: :arrow_double_up: CTF篇 :arrow_double_up: :arrow_double_up:
 
+#### :mag_right: :mag_right: 常用工具实战篇 :mag: :mag:
+
 ## 篇章详细说明
 #### ACM篇<br>
 在线刷题OJ：https://www.matiji.net/exam/<br>
