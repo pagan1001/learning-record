@@ -64,6 +64,7 @@
 ![alt text](photos/image22.png)<br>
 ![alt text](photos/image23.png)<br>
 **查看数据库成功创建**
+
 ![alt text](photos/image24.png)<br>
 
 ***tips：TongWeb自带好几个war包，可以一一尝试测试***
