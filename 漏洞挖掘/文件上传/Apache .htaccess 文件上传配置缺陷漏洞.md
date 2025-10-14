@@ -32,6 +32,22 @@ echo file_get_contents("/home/carlos/secret")
 
 ![alt text](photos/image3.png)
 
+<big>***tips***:</big>
+- **映射为 ASP 处理
+ASP 通常需要 mod_isapi 模块支持（仅限 Windows 系统）。**<br><br>
+&emsp;&emsp;&emsp;在 ***.htaccess*** 中添加以下规则：
+```
+AddHandler isapi-handler .asp
+AddType application/x-httpd-asp .asp
+```
+
+- 映射为 JSP 处理
+**JSP 需要 Tomcat 或 Resin 等 Servlet 容器支持。Apache 需通过 AJP 连接器与 Tomcat 通信。**<br><br>
+&emsp;&emsp;&emsp;在 ***.htaccess*** 中配置（***按照实际tomcat端口修改***）：
+```
+ProxyPassMatch ^/(.*\.jsp)$ ajp://localhost:8009/$1
+ProxyPassReverseMatch ^/(.*\.jsp)$ http://localhost:8080/$1
+```
 
 # 修复方法
 **针对该漏洞，核心修复思路是禁止.htaccess文件的上传和生效，同时加强文件上传验证，具体措施如下：**
