@@ -74,4 +74,4 @@ Content-Type: application/octet-stream
 
 ![alt text](photos/image15.png)
 
-***tips：上传到 /upload/202408/1-2位大写字母/1222.jsp（需要爆破两位字母）***
+***tips：上传到 /upload/202408（日期）/1-2位大写字母/1222.jsp（需要爆破两位字母）***
