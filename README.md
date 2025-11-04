@@ -7,17 +7,21 @@
 
 <br>目前分为：
 
-#### :boom: :boom: ACM刷题记录篇:boom: :boom: <br>
+#### :one: ACM刷题记录篇<br>
 
-#### :monkey: :monkey: 应急响应手册篇 :monkey: :monkey:<br>
+#### :two: 应急响应手册篇<br>
 
-#### :panda_face: :panda_face: Linux常用指令篇 :panda_face: :panda_face:<br>
+#### :three: 攻防演练实战篇:<br>
 
-#### :earth_asia: :earth_asia: 区块链开发运维篇 :earth_asia:  :earth_asia:<br>
+#### :four: 区块链开发运维篇<br>
 
-#### :arrow_double_up: :arrow_double_up: CTF篇 :arrow_double_up: :arrow_double_up:
+#### :five: 中间件篇<br>
 
-#### :mag_right: :mag_right: 常用工具实战篇 :mag: :mag:
+#### :six: 常用工具实战篇<br>
+
+#### :seven: 网安学习篇<br>
+
+#### :eight: 漏洞挖掘篇<br>
 
 ## 篇章详细说明
 #### ACM篇<br>
