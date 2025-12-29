@@ -80,27 +80,27 @@ maxParameterCount 最大并发连接数<br>
 在web.xml底部web-app标签内添加filter标签内容
 ```xml
 <filter>
+<filter-name>httpHeaderSecurity</filter-name>
+<filter-class>org.apache.catalina.filters.HttpHeaderSecurityFilter</filter-class>
+<!-- 启用HSTS，有效期31536000秒（1年） -->
+<init-param>
+    <param-name>hstsEnabled</param-name>
+    <param-value>true</param-value>
+</init-param>
+<init-param>
+    <param-name>hstsMaxAgeSeconds</param-name>
+    <param-value>31536000</param-value>
+</init-param>
+<!-- 建议也包含子域名，并允许预加载 -->
+<init-param>
+    <param-name>hstsIncludeSubDomains</param-name>
+    <param-value>true</param-value>
+</init-param>
+</filter>
+<filter-mapping>
     <filter-name>httpHeaderSecurity</filter-name>
-    <filter-class>org.apache.catalina.filters.HttpHeaderSecurityFilter</filter-class>
-    <!-- 启用HSTS，有效期31536000秒（1年） -->
-    <init-param>
-        <param-name>hstsEnabled</param-name>
-        <param-value>true</param-value>
-    </init-param>
-    <init-param>
-        <param-name>hstsMaxAgeSeconds</param-name>
-        <param-value>31536000</param-value>
-    </init-param>
-    <!-- 建议也包含子域名，并允许预加载 -->
-    <init-param>
-        <param-name>hstsIncludeSubDomains</param-name>
-        <param-value>true</param-value>
-    </init-param>
-    </filter>
-    <filter-mapping>
-        <filter-name>httpHeaderSecurity</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
+    <url-pattern>/*</url-pattern>
+</filter-mapping>
 ```
 重启tomcat查看响应头Strict-Transport-Security
 
